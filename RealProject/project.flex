@@ -71,7 +71,7 @@ COMMENT = "/*"([^*]|"/*")*"*/"
 }
 
  {COMMENT} {
-    System.out.print("comment:" + yytext());
+    //System.out.print("comment:" + yytext());
  }
 
 
