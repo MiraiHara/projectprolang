@@ -17,7 +17,7 @@ import java.util.List;
 
 
 IDENTIFIER = [A-Za-z][A-Za-z0-9]*
-OPERATOR = [+\-*/]
+OPERATOR = "+"|"-"|""|"/"|"="|">"|">="|"<"|"<="|"=="|"++"|"--"
 SPACE = [ \t]+
 KEYWORDS = "if"|"then"|"else"|"endif"|"while"|"do"|"endwhile"|"print"|"newline"|"read"
 STRING = "\"" [^\"]* "\""
@@ -94,5 +94,6 @@ COMMENT = "/*"([^*]|"/*")*"*/"
 
 . {
     System.out.println("Unexpected character: " + yytext());
+    System.exit(0);
 }
 
