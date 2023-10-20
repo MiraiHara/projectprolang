@@ -22,6 +22,8 @@ SPACE = [ \t]+
 KEYWORDS = "if"|"then"|"else"|"endif"|"while"|"do"|"endwhile"|"print"|"newline"|"read"
 STRING = "\"" [^\"]* "\""
 COMMENT = "/*"([^*]|"/*")*"*/"
+INTEGER = [0-9]+
+Symbol_and_Semicolon = "("|")"|";"
 
 %{
     List<String> identifiers = new ArrayList<>();
@@ -74,6 +76,12 @@ COMMENT = "/*"([^*]|"/*")*"*/"
     //System.out.print("comment:" + yytext());
  }
 
+{INTEGER} {
+    System.out.println("INTEGER :"+yytext());
+ }
+ {Symbol_and_Semicolon} {
+    System.out.println("Symbol_and_Semicolon :"+yytext());
+ }
 
 
 <INITIAL> "/*" { 
